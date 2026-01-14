@@ -1,40 +1,29 @@
 import { useState } from "react";
-import { FaShoppingCart, FaBars, FaTimes, FaSearch } from "react-icons/fa";
+import { FaShoppingCart, FaBars, FaTimes, FaSearch, FaChevronDown } from "react-icons/fa";
+
+const languages = [
+  { code: "uz", label: "UZ", flag: "🇺🇿" },
+  { code: "en", label: "EN", flag: "🇬🇧" },
+  { code: "ru", label: "RU", flag: "🇷🇺" },
+];
 
 const Header = () => {
   const [search, setSearch] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState(languages[0]);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
   return (
-    <header className="w-full sticky top-0 z-50 overflow-hidden">
-      {/* Background with subtle emerald pattern from patterncraft.fun style */}
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
-        {/* Subtle pattern overlay - emerald glow + light grid/dots effect */}
-        <div
-          className="absolute inset-0 opacity-30 pointer-events-none"
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at 20% 30%, #10b981 1px, transparent 1px),
-              radial-gradient(circle at 80% 70%, #059669 1px, transparent 1px)
-            `,
-            backgroundSize: "50px 50px",
-          }}
-        />
-        {/* Soft glow at top */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-emerald-500/10 to-transparent" />
-      </div>
-
-      {/* Main content */}
+    <header className="w-full sticky top-0 z-50 overflow-hidden bg-white shadow-md">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 sm:h-20 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3 group">
             <div className="relative">
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500 opacity-70 blur-md group-hover:opacity-100 transition duration-500" />
               <img
-                src="/c64f0fc6-2fbe-4fdd-9fba-460270b77a19.jpg" // To'g'ri yo'lni o'zgartiring yoki import qiling
+                src="/c64f0fc6-2fbe-4fdd-9fba-460270b77a19.jpg"
                 alt="SafarMarket Logo"
-                className="relative h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border-2 border-white/80 shadow-md"
+                className="relative h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border-2 border-gray-200 shadow-md"
               />
             </div>
             <span className="font-extrabold text-xl sm:text-2xl bg-gradient-to-r from-emerald-700 to-teal-600 bg-clip-text text-transparent">
@@ -43,7 +32,8 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation + Search + Actions */}
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-8">
+            {/* Nav */}
             <nav className="flex gap-8 font-medium text-gray-800">
               {["Bosh sahifa", "Mahsulotlar", "Aloqa", "Blog"].map((item) => (
                 <a
@@ -68,6 +58,37 @@ const Header = () => {
               <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-emerald-500/70" />
             </div>
 
+            {/* Language Selector */}
+            <div className="relative">
+              <button
+                onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                className="flex items-center gap-2 border border-emerald-200 rounded-full px-4 py-2 text-sm bg-white/90 hover:bg-white shadow-sm transition"
+              >
+                <span>{currentLang.flag}</span>
+                <span>{currentLang.label}</span>
+                <FaChevronDown className={`transition-transform ${langDropdownOpen ? "rotate-180" : "rotate-0"}`} />
+              </button>
+
+              {/* Dropdown */}
+              {langDropdownOpen && (
+                <div className="absolute mt-2 w-32 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden z-50">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setCurrentLang(lang);
+                        setLangDropdownOpen(false);
+                      }}
+                      className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-emerald-50 transition"
+                    >
+                      <span>{lang.flag}</span>
+                      <span>{lang.label}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
             {/* Actions */}
             <div className="flex items-center gap-6">
               <button className="relative text-gray-700 hover:text-emerald-600 transition-colors">
@@ -85,7 +106,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-gray-800 p-2 rounded-full hover:bg-white/30 transition backdrop-blur-sm"
+            className="lg:hidden text-gray-800 p-2 rounded-full hover:bg-gray-100 transition"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -129,7 +150,38 @@ const Header = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-gray-200">
+          <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-gray-200 items-center">
+            {/* Language Selector */}
+            <div className="relative w-full sm:w-auto">
+              <button
+                onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                className="flex items-center gap-2 w-full sm:w-auto border border-emerald-200 rounded-full px-4 py-2 text-sm bg-white hover:bg-white/90 shadow-sm transition"
+              >
+                <span>{currentLang.flag}</span>
+                <span>{currentLang.label}</span>
+                <FaChevronDown className={`transition-transform ${langDropdownOpen ? "rotate-180" : "rotate-0"}`} />
+              </button>
+
+              {langDropdownOpen && (
+                <div className="absolute mt-2 w-32 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden z-50">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setCurrentLang(lang);
+                        setLangDropdownOpen(false);
+                        setMobileMenuOpen(false);
+                      }}
+                      className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-emerald-50 transition"
+                    >
+                      <span>{lang.flag}</span>
+                      <span>{lang.label}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <a
               href="/login"
               className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white py-3 px-6 rounded-full text-center font-medium hover:brightness-110 transition"
