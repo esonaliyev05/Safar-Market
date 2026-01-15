@@ -24,7 +24,7 @@ const slides = [
     description:
       "Bizning to‘plamlarimiz bilan har qanday tabiat safarini xavfsiz va qulay o'tkazing. Eng yaxshi sifat va ishonchli brendlar.",
     button: "Batafsil ko‘rish",
-    image: "public/image.jpg",
+    image: "image.jpg",
     stats: [
       { value: "150+", label: "Xalqaro brendlar" },
       { value: "1,500+", label: "Yuqori Sifatli Mahsulotlar" },
