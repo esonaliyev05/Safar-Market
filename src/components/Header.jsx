@@ -133,13 +133,20 @@ const Header = () => {
 
             {/* Actions */}
             <div className="flex items-center gap-4">
+
+              <Link to={"/favorites"}>
               <button className="relative text-gray-700 hover:text-emerald-600 transition-colors">
                 <FaRegHeart size={24} />
               </button>
-
-              <button className="relative text-gray-700 hover:text-emerald-600 transition-colors">
+              </Link>
+            
+                <Link to={"/cart"}>
+                <button className="relative text-gray-700 hover:text-emerald-600 transition-colors">
                 <FaShoppingCart size={24} />
               </button>
+                </Link>
+
+           
 
               <Link
                 to={"/auth"}

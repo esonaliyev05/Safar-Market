@@ -11,6 +11,7 @@ import Blog from './pages/Blog'
 import Auth from './pages/Auth'
 import ProfilPeage from './pages/ProfilPeage'
 import FavoritesPage from './pages/FavoritesPage'
+import CartPage from './pages/CartPage'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path='/blog' element={<Blog/>}/>
             <Route path='/profil' element={<ProfilPeage/>}/>
             <Route path='/favorites' element={<FavoritesPage/>}/>
+            <Route path='/cart' element={<CartPage/>}/>
             <Route path='/product' element={<Product/>}/>
             <Route path='/product/:id' element={<ProductDetail/>}/>
             <Route path='/auth' element={<Auth />} />
