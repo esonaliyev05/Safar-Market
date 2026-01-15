@@ -3,6 +3,9 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
+import ProductDetail from './components/product[id]/ProductDetail'
+import NotFound from './pages/NotFound'
+import Product from './components/product/product'
 
 function App() {
 
@@ -11,13 +14,13 @@ function App() {
      <BrowserRouter>
         <Routes>
           <Route element={<Layout/>}> 
-          
+        
             <Route path='/' element={<Home/>}/>
-            
-          
+            <Route path='/product' element={<Product/>}/>
+            <Route path='/product/:id' element={<ProductDetail/>}/>
+            <Route path='*' element={<NotFound/>} />
           
           </Route>
-
         </Routes>
      </BrowserRouter>
     </>
