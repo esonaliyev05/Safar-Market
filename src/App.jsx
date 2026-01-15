@@ -8,6 +8,8 @@ import NotFound from './pages/NotFound'
 import Product from './components/product/product'
 import Contact from './pages/Contact'
 import Blog from './pages/Blog'
+import Auth from './pages/Auth'
+
 
 function App() {
 
@@ -21,6 +23,9 @@ function App() {
             <Route path='/blog' element={<Blog/>}/>
             <Route path='/product' element={<Product/>}/>
             <Route path='/product/:id' element={<ProductDetail/>}/>
+
+            <Route path='/auth' element={<Auth />} />
+
             <Route path='*' element={<NotFound/>} />
           </Route>
         </Routes>

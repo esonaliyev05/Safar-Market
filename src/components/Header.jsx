@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaShoppingCart, FaBars, FaTimes, FaSearch, FaChevronDown } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
 import { FaOpencart } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 
 const languages = [
@@ -104,12 +105,12 @@ const Header = () => {
                 <FaShoppingCart size={24} />
               </button>
 
-              <a
-                href="/login"
+              <Link
+                href="/auth"
                 className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white px-6 py-2.5 rounded-full font-medium hover:from-emerald-700 hover:to-teal-800 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300"
               >
                 Kirish
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -191,13 +192,13 @@ const Header = () => {
               )}
             </div>
 
-            <a
-              href="/login"
+            <Link
+              href="/auth"
               className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white py-3 px-6 rounded-full text-center font-medium hover:brightness-110 transition"
               onClick={() => setMobileMenuOpen(false)}
             >
               Kirish
-            </a>
+            </Link>
             <button
               className="flex items-center justify-center gap-3 py-3 px-6 border border-emerald-200 rounded-full hover:bg-emerald-50 transition"
               onClick={() => setMobileMenuOpen(false)}
