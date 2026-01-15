@@ -240,19 +240,21 @@ const Header = () => {
             </div>
 
             <Link
-              href="/auth"
+              to="/auth"
               className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white py-3 px-6 rounded-full text-center font-medium hover:brightness-110 transition"
               onClick={() => setMobileMenuOpen(false)}
             >
               Kirish
             </Link>
-            <button
+
+
+            <Link to={"/cart"}
               className="flex items-center justify-center gap-3 py-3 px-6 border border-emerald-200 rounded-full hover:bg-emerald-50 transition"
               onClick={() => setMobileMenuOpen(false)}
             >
               <FaShoppingCart size={20} />
               <span>Savat</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
