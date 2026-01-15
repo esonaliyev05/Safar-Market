@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { FaShoppingCart, FaBars, FaTimes, FaSearch, FaChevronDown } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa6";
+import { FaOpencart } from "react-icons/fa6";
+
 
 const languages = [
   { code: "uz", label: "UZ", flag: "🇺🇿" },
@@ -32,7 +35,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation + Search + Actions */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-7">
             {/* Nav */}
             <nav className="flex gap-8 font-medium text-gray-800">
               {["Bosh sahifa", "Mahsulotlar", "Aloqa", "Blog"].map((item) => (
@@ -90,7 +93,13 @@ const Header = () => {
             </div>
 
             {/* Actions */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
+                 
+            <button className="relative text-gray-700 hover:text-emerald-600 transition-colors">
+                <FaRegHeart size={24} />
+              </button>
+                
+
               <button className="relative text-gray-700 hover:text-emerald-600 transition-colors">
                 <FaShoppingCart size={24} />
               </button>
