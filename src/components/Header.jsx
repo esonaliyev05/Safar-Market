@@ -1,9 +1,14 @@
 import { useState } from "react";
-import { FaShoppingCart, FaBars, FaTimes, FaSearch, FaChevronDown } from "react-icons/fa";
+import {
+  FaShoppingCart,
+  FaBars,
+  FaTimes,
+  FaSearch,
+  FaChevronDown,
+} from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
 import { FaOpencart } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
 
 const languages = [
   { code: "uz", label: "UZ", flag: "🇺🇿" },
@@ -23,39 +28,60 @@ const Header = () => {
         <div className="flex h-16 sm:h-20 items-center justify-between">
           {/* Logo */}
 
-          <Link to={"/"}> 
-          <div className="flex items-center gap-3 group">
-       
-       <div className="relative">
-     
-      <img
-           src="/c64f0fc6-2fbe-4fdd-9fba-460270b77a19.jpg"
-           alt="SafarMarket Logo"
-           className="relative h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border-2 border-gray-200 shadow-md"
-         />
-      
-       </div>
-       <span className="font-extrabold text-xl sm:text-2xl bg-gradient-to-r from-emerald-700 to-teal-600 bg-clip-text text-transparent">
-         SafarMarket
-       </span>
-     </div>
-
-          
+          <Link to={"/"}>
+            <div className="flex items-center gap-3 group">
+              <div className="relative">
+                <img
+                  src="/c64f0fc6-2fbe-4fdd-9fba-460270b77a19.jpg"
+                  alt="SafarMarket Logo"
+                  className="relative h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border-2 border-gray-200 shadow-md"
+                />
+              </div>
+              <span className="font-extrabold text-xl sm:text-2xl bg-gradient-to-r from-emerald-700 to-teal-600 bg-clip-text text-transparent">
+                SafarMarket
+              </span>
+            </div>
           </Link>
-      
+
           {/* Desktop Navigation + Search + Actions */}
           <div className="hidden lg:flex items-center gap-7">
             {/* Nav */}
             <nav className="flex gap-8 font-medium text-gray-800">
-              {["Bosh sahifa", "Mahsulotlar", "Aloqa", "Blog"].map((item) => (
-                <a
-                  key={item}
-                  href={item === "Bosh sahifa" ? "/" : `/${item.toLowerCase()}`}
-                  className="relative py-2 text-gray-700 transition-colors hover:text-emerald-700 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-emerald-500 after:transition-all hover:after:w-full"
-                >
-                  {item}
-                </a>
-              ))}
+              <Link
+                to="/"
+                className="relative py-2 text-gray-700 transition-colors hover:text-emerald-700 
+               after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-emerald-500 
+               after:transition-all hover:after:w-full"
+              >
+                Bosh sahifa
+              </Link>
+
+              <Link
+                to="/product"
+                className="relative py-2 text-gray-700 transition-colors hover:text-emerald-700 
+               after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-emerald-500 
+               after:transition-all hover:after:w-full"
+              >
+                Mahsulotlar
+              </Link>
+
+              <Link
+                to="/contact"
+                className="relative py-2 text-gray-700 transition-colors hover:text-emerald-700 
+               after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-emerald-500 
+               after:transition-all hover:after:w-full"
+              >
+                Aloqa
+              </Link>
+
+              <Link
+                to="/blog"
+                className="relative py-2 text-gray-700 transition-colors hover:text-emerald-700 
+               after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-emerald-500 
+               after:transition-all hover:after:w-full"
+              >
+                Blog
+              </Link>
             </nav>
 
             {/* Search */}
@@ -78,7 +104,11 @@ const Header = () => {
               >
                 <span>{currentLang.flag}</span>
                 <span>{currentLang.label}</span>
-                <FaChevronDown className={`transition-transform ${langDropdownOpen ? "rotate-180" : "rotate-0"}`} />
+                <FaChevronDown
+                  className={`transition-transform ${
+                    langDropdownOpen ? "rotate-180" : "rotate-0"
+                  }`}
+                />
               </button>
 
               {/* Dropdown */}
@@ -103,11 +133,9 @@ const Header = () => {
 
             {/* Actions */}
             <div className="flex items-center gap-4">
-                 
-            <button className="relative text-gray-700 hover:text-emerald-600 transition-colors">
+              <button className="relative text-gray-700 hover:text-emerald-600 transition-colors">
                 <FaRegHeart size={24} />
               </button>
-                
 
               <button className="relative text-gray-700 hover:text-emerald-600 transition-colors">
                 <FaShoppingCart size={24} />
@@ -177,7 +205,11 @@ const Header = () => {
               >
                 <span>{currentLang.flag}</span>
                 <span>{currentLang.label}</span>
-                <FaChevronDown className={`transition-transform ${langDropdownOpen ? "rotate-180" : "rotate-0"}`} />
+                <FaChevronDown
+                  className={`transition-transform ${
+                    langDropdownOpen ? "rotate-180" : "rotate-0"
+                  }`}
+                />
               </button>
 
               {langDropdownOpen && (
