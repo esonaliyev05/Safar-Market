@@ -23,9 +23,7 @@ function App() {
             <Route path='/blog' element={<Blog/>}/>
             <Route path='/product' element={<Product/>}/>
             <Route path='/product/:id' element={<ProductDetail/>}/>
-
             <Route path='/auth' element={<Auth />} />
-
             <Route path='*' element={<NotFound/>} />
           </Route>
         </Routes>

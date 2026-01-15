@@ -1,10 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet } from "react-router-dom";
 import Header from './Header';
 import Footer from './Footer';
-
+import Loader from './ui/Loader';
 
 const Layout = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Loader />; // Loader ko‘rsatish
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -13,7 +21,6 @@ const Layout = () => {
         <Outlet />
       </main>
       <Footer />
-      
     </div>
   );
 };

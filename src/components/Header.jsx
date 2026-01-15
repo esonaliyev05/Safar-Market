@@ -168,7 +168,7 @@ const Header = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-gray-200 items-center">
+          <div className="flex flex-col z-10 sm:flex-row gap-4 pt-4 border-t border-gray-200 items-center">
             {/* Language Selector */}
             <div className="relative w-full sm:w-auto">
               <button
