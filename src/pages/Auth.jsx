@@ -26,32 +26,58 @@ const Auth = () => {
           {isLogin ? "Kirish" : "Ro'yxatdan o'tish"}
         </h1>
 
-        {/* Toggle buttons */}
-        <div className="flex justify-center gap-4 mb-6">
+        {/* Toggle buttons with smooth slider */}
+        <div className="relative flex justify-center gap-4 mb-6 bg-gray-200 rounded-full p-1">
+          {/* Active slider */}
+          <span
+            className={`absolute top-0 left-0 h-full w-1/2 bg-emerald-500 rounded-full transition-all duration-500 ease-in-out transform ${
+              !isLogin ? "translate-x-full bg-teal-700" : ""
+            }`}
+          ></span>
+
           <button
             onClick={() => setIsLogin(true)}
-            className={`px-5 py-2 rounded-full font-medium transition ${
-              isLogin
-                ? "bg-emerald-700 text-white shadow-lg"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+            className={`relative z-10 w-1/2 py-2 font-medium text-sm sm:text-base rounded-full transition-colors duration-500 ${
+              isLogin ? "text-white" : "text-gray-700 hover:text-gray-900"
             }`}
           >
             Kirish
           </button>
+
           <button
             onClick={() => setIsLogin(false)}
-            className={`px-5 py-2 rounded-full font-medium transition ${
-              !isLogin
-                ? "bg-teal-700 text-white shadow-lg"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+            className={`relative z-10 w-1/2 py-2 font-medium text-sm sm:text-base rounded-full transition-colors duration-500 ${
+              !isLogin ? "text-white" : "text-gray-700 hover:text-gray-900"
             }`}
           >
             Ro'yxatdan o'tish
           </button>
         </div>
 
-        {/* Form */}
-        {isLogin ? <Login switchToRegister={() => setIsLogin(false)} /> : <Register switchToLogin={() => setIsLogin(true)} />}
+        {/* Form wrapper with smooth slide + fade */}
+        <div className="relative h-[320px] overflow-hidden">
+          {/* Login */}
+          <div
+            className={`absolute inset-0 transition-all duration-500 ${
+              isLogin
+                ? "opacity-100 translate-x-0 z-10"
+                : "opacity-0 -translate-x-10 z-0 pointer-events-none"
+            }`}
+          >
+            <Login switchToRegister={() => setIsLogin(false)} />
+          </div>
+
+          {/* Register */}
+          <div
+            className={`absolute inset-0 transition-all duration-500 ${
+              !isLogin
+                ? "opacity-100 translate-x-0 z-10"
+                : "opacity-0 translate-x-10 z-0 pointer-events-none"
+            }`}
+          >
+            <Register switchToLogin={() => setIsLogin(true)} />
+          </div>
+        </div>
       </div>
     </div>
   );
