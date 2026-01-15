@@ -22,19 +22,27 @@ const Header = () => {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 sm:h-20 items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-3 group">
-            <div className="relative">
-              <img
-                src="/c64f0fc6-2fbe-4fdd-9fba-460270b77a19.jpg"
-                alt="SafarMarket Logo"
-                className="relative h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border-2 border-gray-200 shadow-md"
-              />
-            </div>
-            <span className="font-extrabold text-xl sm:text-2xl bg-gradient-to-r from-emerald-700 to-teal-600 bg-clip-text text-transparent">
-              SafarMarket
-            </span>
-          </div>
 
+          <Link to={"/"}> 
+          <div className="flex items-center gap-3 group">
+       
+       <div className="relative">
+     
+      <img
+           src="/c64f0fc6-2fbe-4fdd-9fba-460270b77a19.jpg"
+           alt="SafarMarket Logo"
+           className="relative h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border-2 border-gray-200 shadow-md"
+         />
+      
+       </div>
+       <span className="font-extrabold text-xl sm:text-2xl bg-gradient-to-r from-emerald-700 to-teal-600 bg-clip-text text-transparent">
+         SafarMarket
+       </span>
+     </div>
+
+          
+          </Link>
+      
           {/* Desktop Navigation + Search + Actions */}
           <div className="hidden lg:flex items-center gap-7">
             {/* Nav */}
@@ -106,7 +114,7 @@ const Header = () => {
               </button>
 
               <Link
-                href="/auth"
+                to={"/auth"}
                 className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white px-6 py-2.5 rounded-full font-medium hover:from-emerald-700 hover:to-teal-800 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300"
               >
                 Kirish
