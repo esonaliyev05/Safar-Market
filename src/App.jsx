@@ -6,6 +6,8 @@ import Home from './pages/Home'
 import ProductDetail from './components/product[id]/ProductDetail'
 import NotFound from './pages/NotFound'
 import Product from './components/product/product'
+import Contact from './pages/Contact'
+import Blog from './pages/Blog'
 
 function App() {
 
@@ -14,12 +16,12 @@ function App() {
      <BrowserRouter>
         <Routes>
           <Route element={<Layout/>}> 
-        
             <Route path='/' element={<Home/>}/>
+            <Route path='/contact' element={<Contact/>}/>
+            <Route path='/blog' element={<Blog/>}/>
             <Route path='/product' element={<Product/>}/>
             <Route path='/product/:id' element={<ProductDetail/>}/>
             <Route path='*' element={<NotFound/>} />
-          
           </Route>
         </Routes>
      </BrowserRouter>
