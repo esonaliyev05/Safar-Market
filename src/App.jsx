@@ -12,6 +12,7 @@ import Auth from './pages/Auth'
 import ProfilPeage from './pages/ProfilPeage'
 import FavoritesPage from './pages/FavoritesPage'
 import CartPage from './pages/CartPage'
+import BlogDetail from './components/BlogDetail'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path='/' element={<Home/>}/>
             <Route path='/contact' element={<Contact/>}/>
             <Route path='/blog' element={<Blog/>}/>
+            <Route path="/blog/:id" element={<BlogDetail />} />
             <Route path='/profil' element={<ProfilPeage/>}/>
             <Route path='/favorites' element={<FavoritesPage/>}/>
             <Route path='/cart' element={<CartPage/>}/>
