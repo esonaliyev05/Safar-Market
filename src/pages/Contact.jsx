@@ -24,7 +24,7 @@ const Contact = () => {
    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div 
-        className="relative max-w-[1440px] h-[466px] bg-[url('/bg-image.png')] bg-no-repeat bg-cover bg-center"
+        className="relative max-w-7xl mx-auto h-[466px] bg-[url('/bg-image.png')] bg-no-repeat bg-cover bg-center"
         
       >
         <div className="absolute inset-0  bg-opacity-30"></div>
