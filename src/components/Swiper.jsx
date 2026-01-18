@@ -40,7 +40,7 @@ const Swiper = () => {
 
   return (
     <section className="py-16 bg-white overflow-hidden">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1280px] h-[65vh] mx-auto sm:px-6 lg:px-8">
         <SwiperComponent
           modules={[Autoplay, Pagination]}
           spaceBetween={50}

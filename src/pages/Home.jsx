@@ -1,5 +1,6 @@
 import React from 'react'
 import Swiper from '../components/Swiper'
+import Product from '../components/product/product'
 
 const Home = () => {
   return (
@@ -7,6 +8,7 @@ const Home = () => {
         {/* <Swiper/> */}
 
         <Swiper/>
+        <Product/>
     </div>
   )
 }
